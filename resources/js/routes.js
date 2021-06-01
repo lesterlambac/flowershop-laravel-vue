@@ -1,5 +1,5 @@
 import Home from './components/Home.vue';
-import ExampleComponent from './components/ExampleComponent';
+import Example from './components/Example';
 const routes = [
   {
     path: '/',
@@ -7,7 +7,7 @@ const routes = [
   },
   {
     path: '/example',
-    component: ExampleComponent,
+    component: Example,
   },
 ];
 

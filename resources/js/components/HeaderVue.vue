@@ -7,6 +7,7 @@
         </h3>
       </div>
       <nav class="">
+        <router-link to="/example">Example</router-link>
         <a href="" class="pl-4 font-semibold leading-tight tracking-wide"
           >Location</a
         >
