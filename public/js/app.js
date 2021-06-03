@@ -1905,15 +1905,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -37966,7 +37957,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
             _c("form", { attrs: { action: "#", method: "POST" } }, [
@@ -37978,7 +37969,7 @@ var render = function() {
                     "div",
                     { staticClass: "px-4 py-5 bg-white space-y-6 sm:p-6" },
                     [
-                      _c("div", { staticClass: "grid grid-cols-3 gap-6" }, [
+                      _c("div", { staticClass: "grid grid-cols-2 gap-6" }, [
                         _c("div", { staticClass: "col-span-3 sm:col-span-2" }, [
                           _c(
                             "label",
@@ -37998,19 +37989,6 @@ var render = function() {
                             "div",
                             { staticClass: "mt-1 flex rounded-md shadow-sm" },
                             [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        http://\n                      "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
                               _c("input", {
                                 directives: [
                                   {
@@ -38042,7 +38020,7 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "grid grid-cols-3 gap-6" }, [
+                      _c("div", { staticClass: "grid grid-cols-2 gap-6" }, [
                         _c("div", { staticClass: "col-span-3 sm:col-span-2" }, [
                           _c(
                             "label",
@@ -38062,20 +38040,7 @@ var render = function() {
                             "div",
                             { staticClass: "mt-1 flex rounded-md shadow-sm" },
                             [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        http://\n                      "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("input", {
+                              _c("textarea", {
                                 directives: [
                                   {
                                     name: "model",
@@ -38106,7 +38071,7 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "grid grid-cols-3 gap-6" }, [
+                      _c("div", { staticClass: "grid grid-cols-2 gap-6" }, [
                         _c("div", { staticClass: "col-span-3 sm:col-span-2" }, [
                           _c(
                             "label",
@@ -38126,19 +38091,6 @@ var render = function() {
                             "div",
                             { staticClass: "mt-1 flex rounded-md shadow-sm" },
                             [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                        http://\n                      "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
                               _c("input", {
                                 directives: [
                                   {
@@ -38191,7 +38143,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                    Save\n                  "
+                                "\n                    Create\n                  "
                               )
                             ]
                           )
