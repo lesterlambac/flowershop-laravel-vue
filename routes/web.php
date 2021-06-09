@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/create', function () {
+  $user = new User;
+  $user->password = Hash::make('password');
+  $user->email = 'lester@example.com';
+  $user->name = 'Lester';
+  $user->save();
+
+  return dd($user);
+});
+
+Route::get('/test', function() {
+  return request()->session()->all();
 });

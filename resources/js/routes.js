@@ -1,6 +1,11 @@
 import Home from './components/Home.vue';
-import Example from './components/Example';
 import Login from './Auth/Login';
+
+import Products from './Product/Products';
+import CreateProduct from './Product/CreateProduct';
+
+import CreateCategory from './Category/CreateCategory';
+
 const routes = [
   {
     path: '/login',
@@ -11,8 +16,16 @@ const routes = [
     component: Home,
   },
   {
-    path: '/example',
-    component: Example,
+    path: '/category',
+    component: CreateCategory,
+  },
+  {
+    path: '/create-product',
+    component: CreateProduct,
+  },
+  {
+    path: '/products',
+    component: Products,
   },
 ];
 

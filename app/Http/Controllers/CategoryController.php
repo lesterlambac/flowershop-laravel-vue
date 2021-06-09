@@ -34,9 +34,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        return Category::findOrFail($category);
+        return [
+          'category' => Category::findOrFail($id),
+          'products' => Category::findOrFail($id)->products,
+        ];
     }
 
 
@@ -58,8 +61,8 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        return Category::where('category', $category)->delete();
+        return Category::where('id', $id)->delete();
     }
 }

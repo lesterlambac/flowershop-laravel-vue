@@ -48,10 +48,12 @@ export default {
   methods: {
     login() {
       axios.post('/api/login', {
-        product: this.product,
+        email: 'lester@example.com',
+        password: 'password',
       })
       .then(response => {
-        console.log(response)
+        localStorage.setItem('access_token', response.data.access_token);
+        console.log(response.data)
       })
       .catch(e => {
         console.log(e);
@@ -68,10 +70,9 @@ export default {
     .catch(e => {
       console.log(e);
     });
+
+    console.log('Auth Test...')
+    console.log(this.$store.getters.isAuth);
   },
-  created() {
-    console.log(this.route);
-  }
-  
 }
 </script>

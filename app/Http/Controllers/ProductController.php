@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -12,9 +13,9 @@ class ProductController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index(Request $request)
   {
-      return Product::all();
+      return Product::with('category')->get();
   }
 
   /**
@@ -26,10 +27,12 @@ class ProductController extends Controller
   public function store(Request $request)
   {
       $test = [
-        "product_name" => $request->product['name'],
-        "content" => $request->product['content'],
-        "price" => $request->product['price'],
+        "name" => $request->name,
+        "description" => $request->description,
+        "category_id" => $request->category,
+        "price" => $request->price,
       ];
+  
       return Product::create($test);
   }
 
