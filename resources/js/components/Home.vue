@@ -1,5 +1,27 @@
 <template>
     <div class="container">
+      <div class="container">
+
+        <header class="relative py-6 px-8 flex align-center justify-between shadow-sm no-underline" style="background: rgba(255,255,255, 0.8)">
+          <div class="">
+            <router-link class="font-bold text-xl tracking-wide text-pink-700" to="/">🌸 BloomFields</router-link>
+          </div>
+          <nav class="">
+            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/category">Create Category</router-link>
+            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/create-product">Create Product</router-link>
+            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/products">Products</router-link>
+            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/login">Login</router-link>
+          </nav>
+
+        </header>
+        <div class="relative pb-48 overflow-hidden" style="height: 400px;">
+          <img class="absolute inset-0 h-full w-full object-cover" style="z-index: -1" :src="'image/bloomfields.jpg'" alt="">
+        </div>
+        <div class="mb-12 text-white px-8 py-3 text-sm text-center font-bold shadow-md rounded-b" style="background: #d28382;">
+          <p>FREE Delivery within Digos City</p>
+        </div>
+      </div>
+
       <div class="grid grid-cols-10 gap-8">
 
           <div class="col-span-2">
@@ -45,7 +67,7 @@
                         </div>
 
                       </div>
-                      <div class="p-4 border-t border-b text-xs text-gray-700">
+                      <!-- <div class="p-4 border-t border-b text-xs text-gray-700">
                         <span class="flex items-center mb-1">
                           <i class="far fa-clock fa-fw mr-2 text-gray-900"></i>
                             3 Tage
@@ -54,8 +76,8 @@
                           <i class="far fa-address-card fa-fw text-gray-900 mr-2"></i>
                           Ermäßigung mit Karte
                         </span>
-                      </div>
-                      <div class="p-4 flex items-center text-sm text-gray-600">
+                      </div> -->
+                      <div class="p-4 flex items-center text-sm text-gray-600 border-t">
                         <svg
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"

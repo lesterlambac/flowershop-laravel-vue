@@ -1,6 +1,7 @@
 export default class Product {
 
-  constructor ({name, description, price, category}) {
+  constructor ({id, name, description, price, category}) {
+    this.id = id;
     this.name = name;
     this.description = description;
     this.price = price;
@@ -42,6 +43,10 @@ export default class Product {
     }
 
     return this.category;
+  }
+
+  hasId() {
+    return this.id ? true : false;
   }
 
 }

@@ -5,8 +5,13 @@ import Products from './Product/Products';
 import CreateProduct from './Product/CreateProduct';
 
 import CreateCategory from './Category/CreateCategory';
+import Main from './Dashboard/Main';
 
 const routes = [
+  {
+    path: '/admin',
+    component: Main,
+  },
   {
     path: '/login',
     component: Login,
