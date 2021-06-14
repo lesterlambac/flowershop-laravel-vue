@@ -1,5 +1,5 @@
 <template>
-  <div class="md:col-span-2 px-4">
+  <div class="md:col-span-2 px-4" v-if="open">
     <div class="py-6 px-4 border-b">
       <h1 class="text-xl tracking-wide" to="/">Details</h1>
     </div>
@@ -71,6 +71,8 @@
 
 <script>
 import axios from 'axios';
+import Detail from './../Events/Detail.js';
+
 export default {
   data : () => ({
     product: {
@@ -80,6 +82,7 @@ export default {
       price: '78',
     },
     categories: [],
+    open: false,
   }),
 
   methods: {
@@ -104,10 +107,22 @@ export default {
       }
     },
 
+    openDetail() {
+      this.open = true;
+    }
+
   },
 
   mounted() {
     this.getCategories();
+
+    // event bus ...
+    Detail.$on(['open', 'close'], (payload) => {
+      this.openDetail(payload);
+    });
+
+    console.log(Detail);
+
   },
 }
 </script>

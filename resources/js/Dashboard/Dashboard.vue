@@ -90,6 +90,7 @@ export default {
   methods: {
     async setSelected(product) {
       await this.$store.dispatch('product/setSelected', product);
+      this.$detail.open('Product is being selected....');
     }
   },
 
@@ -99,7 +100,9 @@ export default {
   },
 
   async created() {
+    
   }
+
 }
 </script>
 

@@ -8,6 +8,9 @@ import store from './store.js';
 import HeaderVue from './components/HeaderVue';
 import FooterVue from './components/FooterVue';
 
+import Detail from './Events/app.js';
+Vue.use(Detail);
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
