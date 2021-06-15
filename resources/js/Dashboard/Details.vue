@@ -1,7 +1,10 @@
 <template>
   <div class="md:col-span-2 px-4" v-if="open">
-    <div class="py-6 px-4 border-b">
+    <div class="py-6 border-b flex justify-between">
       <h1 class="text-xl tracking-wide" to="/">Details</h1>
+      <div class="cursor-pointer" @click="closeDetail">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 icon-close-circle"><circle cx="12" cy="12" r="10" class="primary text-gray-300 fill-current"></circle><path class="secondary text-gray-500" d="M13.41 12l2.83 2.83a1 1 0 0 1-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 1 1-1.41-1.41L10.59 12 7.76 9.17a1 1 0 0 1 1.41-1.41L12 10.59l2.83-2.83a1 1 0 0 1 1.41 1.41L13.41 12z"></path></svg>
+      </div>
     </div>
     <form action="#" method="POST">
       <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -72,6 +75,7 @@
 <script>
 import axios from 'axios';
 import Detail from './../Events/Detail.js';
+import Product from './../Models/Product.js';
 
 export default {
   data : () => ({
@@ -84,6 +88,14 @@ export default {
     categories: [],
     open: false,
   }),
+
+  watch: {
+    product(val) {
+      if (typeof val.category == 'object') {
+        val.category = val.category.id;
+      }
+    }
+  },
 
   methods: {
     submit() {
@@ -107,22 +119,35 @@ export default {
       }
     },
 
-    openDetail() {
+    async getSelectedProduct() {
+      this.product = new Product(this.$store.getters['product/getSelected']);
+      console.log(this.product);
+    },
+
+    async openDetail() {
       this.open = true;
+
+      await this.getSelectedProduct();
+    },
+
+    closeDetail() {
+      this.open = false;
     }
 
   },
 
   mounted() {
+    // load categories ...
     this.getCategories();
 
     // event bus ...
-    Detail.$on(['open', 'close'], (payload) => {
+    Detail.$on(['open'], (payload) => {
       this.openDetail(payload);
     });
 
-    console.log(Detail);
-
+    Detail.$on(['close'], (payload) => {
+      this.openDetail(payload);
+    });
   },
 }
 </script>

@@ -23,7 +23,7 @@ const product = {
     },
 
     setSelected(state, payload){
-      console.log(payload);
+      this.commit('product/setSelected', payload);
     }
 
   },
@@ -38,6 +38,9 @@ const product = {
   getters: {
     getProducts(state) {
       return state.products;
+    },
+    getSelected(state) {
+      return state.selected;
     }
   },
 }

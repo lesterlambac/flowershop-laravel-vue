@@ -2328,12 +2328,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Events_Detail_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Events/Detail.js */ "./resources/js/Events/Detail.js");
+/* harmony import */ var _Models_Product_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Models/Product.js */ "./resources/js/Models/Product.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 //
 //
 //
@@ -2405,6 +2408,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2419,6 +2426,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       categories: [],
       open: false
     };
+  },
+  watch: {
+    product: function product(val) {
+      if (_typeof(val.category) == 'object') {
+        val.category = val.category.id;
+      }
+    }
   },
   methods: {
     submit: function submit() {
@@ -2461,19 +2475,61 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, null, [[0, 7]]);
       }))();
     },
+    getSelectedProduct: function getSelectedProduct() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.product = new _Models_Product_js__WEBPACK_IMPORTED_MODULE_3__.default(_this2.$store.getters['product/getSelected']);
+                console.log(_this2.product);
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
     openDetail: function openDetail() {
-      this.open = true;
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _this3.open = true;
+                _context3.next = 3;
+                return _this3.getSelectedProduct();
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    closeDetail: function closeDetail() {
+      this.open = false;
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this4 = this;
 
+    // load categories ...
     this.getCategories(); // event bus ...
 
-    _Events_Detail_js__WEBPACK_IMPORTED_MODULE_2__.default.$on(['open', 'close'], function (payload) {
-      _this2.openDetail(payload);
+    _Events_Detail_js__WEBPACK_IMPORTED_MODULE_2__.default.$on(['open'], function (payload) {
+      _this4.openDetail(payload);
     });
-    console.log(_Events_Detail_js__WEBPACK_IMPORTED_MODULE_2__.default);
+    _Events_Detail_js__WEBPACK_IMPORTED_MODULE_2__.default.$on(['close'], function (payload) {
+      _this4.openDetail(payload);
+    });
   }
 });
 
@@ -3384,6 +3440,15 @@ var Product = /*#__PURE__*/function () {
       return this.category;
     }
   }, {
+    key: "getCategoryId",
+    value: function getCategoryId() {
+      if (_typeof(this.category) == 'object') {
+        return this.category.id;
+      }
+
+      return this.category;
+    }
+  }, {
     key: "hasId",
     value: function hasId() {
       return this.id ? true : false;
@@ -3509,7 +3574,7 @@ var product = {
       }))();
     },
     setSelected: function setSelected(state, payload) {
-      console.log(payload);
+      this.commit('product/setSelected', payload);
     }
   },
   mutations: {
@@ -3523,6 +3588,9 @@ var product = {
   getters: {
     getProducts: function getProducts(state) {
       return state.products;
+    },
+    getSelected: function getSelected(state) {
+      return state.selected;
     }
   }
 };
@@ -41411,7 +41479,43 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.open
     ? _c("div", { staticClass: "md:col-span-2 px-4" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "py-6 border-b flex justify-between" }, [
+          _c(
+            "h1",
+            { staticClass: "text-xl tracking-wide", attrs: { to: "/" } },
+            [_vm._v("Details")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "cursor-pointer", on: { click: _vm.closeDetail } },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "w-8 icon-close-circle",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 24 24"
+                  }
+                },
+                [
+                  _c("circle", {
+                    staticClass: "primary text-gray-300 fill-current",
+                    attrs: { cx: "12", cy: "12", r: "10" }
+                  }),
+                  _c("path", {
+                    staticClass: "secondary text-gray-500",
+                    attrs: {
+                      d:
+                        "M13.41 12l2.83 2.83a1 1 0 0 1-1.41 1.41L12 13.41l-2.83 2.83a1 1 0 1 1-1.41-1.41L10.59 12 7.76 9.17a1 1 0 0 1 1.41-1.41L12 10.59l2.83-2.83a1 1 0 0 1 1.41 1.41L13.41 12z"
+                    }
+                  })
+                ]
+              )
+            ]
+          )
+        ]),
         _vm._v(" "),
         _c("form", { attrs: { action: "#", method: "POST" } }, [
           _c(
@@ -41679,18 +41783,7 @@ var render = function() {
       ])
     : _vm._e()
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "py-6 px-4 border-b" }, [
-      _c("h1", { staticClass: "text-xl tracking-wide", attrs: { to: "/" } }, [
-        _vm._v("Details")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -45,6 +45,15 @@ export default class Product {
     return this.category;
   }
 
+  getCategoryId() {
+
+    if (typeof (this.category) == 'object') {
+      return this.category.id;
+    }
+
+    return this.category;
+  }
+
   hasId() {
     return this.id ? true : false;
   }
