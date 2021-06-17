@@ -3,7 +3,7 @@
     <div class="col-span-2 bg-white-100 border-r">
       <Sidebar />
     </div>
-    <div class="col-span-7 container">
+    <div class="col-span-7">
       <Dashboard />
     </div>
     <div class="col-span-3 bg-gray-100">

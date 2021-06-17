@@ -22,20 +22,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
-  Route::resource('/product', ProductController::class);
-});
+// Route::group(['middleware' => 'auth:sanctum'], function() {
+//   Route::resource('/product', ProductController::class);
+// });
 
+Route::post('product', [ProductController::class, 'store'])->middleware('auth:sanctum');
+Route::get('product', [ProductController::class, 'index']);
+Route::delete('product/{id}', [ProductController::class, 'destroy']);
+Route::get('product/{id}', [ProductController::class, 'show']);
 
 Route::post('category', [CategoryController::class, 'store'])->middleware('auth:sanctum');
 Route::get('category', [CategoryController::class, 'index']);
 Route::delete('category/{id}', [CategoryController::class, 'destroy']);
 Route::get('category/{id}', [CategoryController::class, 'show']);
 
-
-
 Route::post('login', function (Request $request) {
-
   $request->validate([
     'email' => 'required|email',
     'password' => 'required',

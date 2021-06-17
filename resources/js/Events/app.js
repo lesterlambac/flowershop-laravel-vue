@@ -13,5 +13,11 @@ export default {
       }
     }
 
+    Vue.prototype.$dashboard = {
+      change(payload) {
+        Detail.$emit('change', payload);
+      },
+    }
+
   }
 }

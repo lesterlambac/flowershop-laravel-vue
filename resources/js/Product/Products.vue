@@ -13,7 +13,7 @@
                   <div class="col-span-4 relative pb-48 overflow-hidden">
                     <img
                       class="absolute inset-0 h-full w-full object-cover"
-                      src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.6435-9/159535825_775628386685038_6567514546360816298_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=8bfeb9&_nc_eui2=AeGzAJmhkvEYEE8mPnQJ8ulw8Mh2wYiA15DwyHbBiIDXkJd9T4C1tuUBi4MkTcc2rxjC_CPYO4uWMcgEtbobA446&_nc_ohc=bERxgYOy0FIAX_zAxMo&_nc_ht=scontent.fmnl25-1.fna&oh=82dad327ba26448e4621f3ab4e168606&oe=60C6DE1F"
+                      :src="'image/bloomfields.jpg'"
                       alt=""
                     />
                   </div>

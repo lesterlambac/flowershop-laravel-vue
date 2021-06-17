@@ -2,31 +2,29 @@
     <div class="container">
       <div class="container">
 
-        <header class="relative py-6 px-8 flex align-center justify-between shadow-sm no-underline" style="background: rgba(255,255,255, 0.8)">
+        <header class="relative py-6 px-8 flex align-center justify-between shadow-sm" style="background: rgba(255,255,255, 0.8)">
           <div class="">
-            <router-link class="font-bold text-xl tracking-wide text-pink-700" to="/">🌸 BloomFields</router-link>
+            <router-link class="font-bold text-xl tracking-wide text-pink-700 hover:no-underline no-underline" to="/">🌸 BloomFields</router-link>
           </div>
           <nav class="">
-            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/category">Create Category</router-link>
-            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/create-product">Create Product</router-link>
-            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/products">Products</router-link>
-            <router-link class="pl-4 font-semibold leading-tight tracking-wide no-underline" to="/login">Login</router-link>
+            <router-link class="pl-6 font-semibold leading-tight tracking-wide hover:no-underline no-underline text-gray-700" to="/products">Products</router-link>
+            <router-link class="pl-12 font-semibold leading-tight tracking-wide hover:no-underline no-underline text-gray-700" to="/">Location</router-link>
           </nav>
 
         </header>
         <div class="relative pb-48 overflow-hidden" style="height: 400px;">
           <img class="absolute inset-0 h-full w-full object-cover" style="z-index: -1" :src="'image/bloomfields.jpg'" alt="">
         </div>
-        <div class="mb-12 text-white px-8 py-3 text-sm text-center font-bold shadow-md rounded-b" style="background: #d28382;">
+        <div class="mb-12 text-white px-8 py-3 text-sm text-center font-bold shadow-md rounded-b" style="background: rgb(190 24 93);">
           <p>FREE Delivery within Digos City</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-10 gap-8">
+      <div class="grid grid-cols-10 gap-8 container">
 
           <div class="col-span-2">
             <div v-for="(category, index) in categories" :key="category.id + index">
-              <button class="px-3 py-3 border-b-2 rounded-sm shadow-md font-semibold cursor-pointer block w-full text-left" @click="changeCategory(category.id)">
+              <button class="px-3 py-3 mb-2 border-b rounded-sm shadow-md border font-semibold cursor-pointer block w-full text-left" @click="changeCategory(category.id)">
                 🌷 {{ category.name }}
               </button>
             </div>
@@ -35,15 +33,15 @@
           <div class="col-span-8">
             <div class="grid grid-cols-3" >
 
-              <div class="px-2 py-2 bg-gray-100" v-for="(product, index) in products" :key="product + index">
+              <div class="px-2" v-for="(product, index) in products" :key="product + index">
 
                 <div class="container mx-auto w-full">
                   <div class="flex flex-wrap -mx-4">
-                    <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden w-full hover:no-underline hover:text-black">
-                      <div class="relative pb-48 overflow-hidden">
+                    <a href="" class="c-card block bg-white shadow-md hover:shadow-xl border rounded-lg overflow-hidden w-full hover:no-underline hover:text-black">
+                      <div class="relative pb-48 overflow-hidden border-b">
                         <img
                           class="absolute inset-0 h-full w-full object-cover"
-                          src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.6435-9/159535825_775628386685038_6567514546360816298_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=8bfeb9&_nc_eui2=AeGzAJmhkvEYEE8mPnQJ8ulw8Mh2wYiA15DwyHbBiIDXkJd9T4C1tuUBi4MkTcc2rxjC_CPYO4uWMcgEtbobA446&_nc_ohc=bERxgYOy0FIAX_zAxMo&_nc_ht=scontent.fmnl25-1.fna&oh=82dad327ba26448e4621f3ab4e168606&oe=60C6DE1F"
+                          :src="'image/bloomfields.jpg'"
                           alt=""
                         />
                       </div>
