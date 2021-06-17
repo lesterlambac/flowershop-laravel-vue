@@ -58,6 +58,7 @@ export default class Product {
     return this.id ? true : false;
   }
 
+  filter() {
+    console.log(this);
+  }
 }
-
-console.log('I was called');

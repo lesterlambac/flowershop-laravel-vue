@@ -52,8 +52,9 @@
               {{ product.getCategory() }}
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-              <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-              <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+              <a href="#" class="text-indigo-600 hover:text-indigo-900 group">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 mr-4 icon-trash"><path class="group-hover:text-blue-400 text-gray-400 fill-current primary" d="M5 5h14l-.89 15.12a2 2 0 0 1-2 1.88H7.9a2 2 0 0 1-2-1.88L5 5zm5 5a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0-1-1zm4 0a1 1 0 0 0-1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0-1-1z"></path><path class="secondary group-hover:text-blue-500 text-gray-500 fill-current" d="M8.59 4l1.7-1.7A1 1 0 0 1 11 2h2a1 1 0 0 1 .7.3L15.42 4H19a1 1 0 0 1 0 2H5a1 1 0 1 1 0-2h3.59z"></path></svg>
+              </a>
             </td>
           </tr>
         </tbody>

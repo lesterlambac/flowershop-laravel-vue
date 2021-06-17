@@ -8,13 +8,7 @@
               Name
             </th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Description
-            </th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Price
-            </th>
-            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Category
+              Linked Posts
             </th>
             <th scope="col" class="relative px-6 py-3">
               <span class="sr-only">Edit</span>
@@ -33,27 +27,17 @@
                   <div class="text-sm font-medium text-gray-900">
                     {{ category.name }}
                   </div>
-                  <div class="text-sm text-gray-500">
-                    
-                  </div>
                 </div>
               </div>
             </td>
-            <td class="px-6 py-4 ">
-              <div class="text-sm text-gray-900"></div>
-              <div class="text-sm text-gray-500"></div>
-            </td>
             <td class="px-6 py-4 whitespace-nowrap">
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                price
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                {{ '13' }}
               </span>
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              category
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-              <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+              <a href="#" class="text-indigo-600 hover:text-indigo-900 pl-8">Delete</a>
             </td>
           </tr>
         </tbody>

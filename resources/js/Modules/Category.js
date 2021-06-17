@@ -14,7 +14,8 @@ const category = {
       try {
         const categories = await axios.get('/api/category');
         if (categories.data) {
-          this.commit('category/setCategories', categories.data.map((category) => new Category({...category})));
+          const filtered = categories.data.map((category) => new Category({...category}));
+          this.commit('category/setCategories', filtered);
         }
       }
       catch (error) {

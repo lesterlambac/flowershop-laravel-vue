@@ -17,6 +17,10 @@ export default {
       change(payload) {
         Detail.$emit('change', payload);
       },
+
+      selectRowChange(payload) {
+        Detail.$emit('selectRowChange', payload)
+      }
     }
 
   }

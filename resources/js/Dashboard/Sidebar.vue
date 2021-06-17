@@ -1,16 +1,18 @@
 <template>
   <div class="text-center">
     <div class="py-6 px-4 border-b">
-      <router-link class="font-bold text-xl tracking-wide text-pink-700 hover:text-pink-700" to="/">🌸 BloomFields</router-link>
+      <router-link class="font-bold text-xl tracking-wide text-gray-700 hover:text-gray-700" to="/">🌸 BloomFields</router-link>
     </div>
 
     <div class="mt-6">
       <div @click="changeDashboard('products')"
+        :class="[selected == 'products' ? 'bg-gray-700 text-white' : '']"
         class="px-3 py-3 rounded-sm font-semibold cursor-pointer block w-full text-left text-md flex hover:bg-gray-700 hover:text-white group transition">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 mr-2 icon-product hover:text-white fill-current" fill="#2E1E36"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
         Products
       </div>
       <div @click="changeDashboard('categories')"
+        :class="[selected == 'categories' ? 'bg-gray-700 text-white' : '']"
         class="px-3 py-3 rounded-sm font-semibold cursor-pointer block w-full text-left text-md flex hover:bg-gray-700 hover:text-white group transition">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 mr-2 icon-collection hover:text-white fill-current"><rect width="20" height="12" x="2" y="10" class="primary" rx="2"></rect><path class="secondary" d="M20 8H4c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2zm-2-4H6c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"></path></svg>
          Categories
@@ -31,13 +33,15 @@
 export default {
   data() {
     return {
-      selected: '',
+      selected: 'products',
     }
   },
 
   methods: {
     changeDashboard(payload) {
       this.$dashboard.change(payload);
+      this.selected = payload;
+      this.$store.commit('setSelected', payload);
     }
   },
   mounted() {

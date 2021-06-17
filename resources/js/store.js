@@ -11,13 +11,19 @@ const store = new VueX.Store({
 
   state() {
     return {
-      selected:'',
+      selected: 'products',
     }
   },
 
-  mutation: {
+  mutations: {
     setSelected(state, payload) {
       state.selected = payload;
+    }
+  },
+
+  getters: {
+    getSelected(state) {
+      return state.selected;
     }
   },
 
