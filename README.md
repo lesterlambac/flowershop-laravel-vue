@@ -13,4 +13,4 @@ On the Front-End side, it has these functionalities:
 
 To test this, you can simply download this repository, run `yarn install or npm install` then run `php artisan serve`.
 
-Want to do web development with me? Check out 📁: <p><a href="https://lesterlambac.com/" target="_blank">My Portfolio</a></p>. I am more into VueJS and Front-End Development.
+Want to do web development with me? Check out 📁: <a href="https://lesterlambac.com/" target="_blank">My Portfolio</a>. I am more into VueJS and Front-End Development.
