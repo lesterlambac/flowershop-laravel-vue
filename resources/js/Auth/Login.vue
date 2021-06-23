@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
+  <div class="">
+    <div class="">
       <div class="col-md-6">
         <div class="card">
 
@@ -54,6 +54,10 @@ export default {
       .then(response => {
         localStorage.setItem('access_token', response.data.access_token);
         console.log(response.data)
+
+        // change this later
+        this.$store.dispatch('login', true);
+        this.$router.push('/admin');
       })
       .catch(e => {
         console.log(e);

@@ -26,6 +26,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //   Route::resource('/product', ProductController::class);
 // });
 
+Route::middleware('auth:sanctum')->group(function () {
+  Route::get('/user', function (Request $request) {
+      return $request->user();
+  });
+});
+
 Route::post('product', [ProductController::class, 'store'])->middleware('auth:sanctum');
 Route::get('product', [ProductController::class, 'index']);
 Route::delete('product/{id}', [ProductController::class, 'destroy']);
@@ -58,3 +64,4 @@ Route::post('login', function (Request $request) {
   ]);
 
 });
+

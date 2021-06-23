@@ -4,10 +4,14 @@ const auth = {
     user: {}
   }),
   actions: {
-
+    login(state, payload) {
+      this.commit('login', payload);
+    }
   },
   mutations: {
-
+    login(state, payload) {
+      state.authenticated = payload;
+    }
   },
   getters: {
     isAuth : ({ authenticated } = state) => authenticated,
